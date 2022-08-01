@@ -1,0 +1,22 @@
+@charset 'utf-8';
+
+$theme: #d43c33;
+$bj: #FFFFFF;
+$font-color: #333333;
+$font-grey: #8b8989;
+$color-ef: #EFEFEF;
+$font-small: #686868;
+$font-66: #666666;
+
+.padd-css{
+	padding: 0 0.2rem;
+}
+
+// 一行
+@mixin one-line {
+	text-overflow: ellipsis;overflow: hidden;white-space: nowrap;
+}
+// 多行
+@mixin more-line($num) {
+	overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: $num;-webkit-box-orient: vertical;
+}

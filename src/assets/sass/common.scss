@@ -1,0 +1,15 @@
+@charset 'utf-8';
+
+html,body{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.com-top{
+	width: 100%;display: flex;justify-content: space-between;align-items: center;box-sizing: border-box;
+	height: 1.12rem;
+	.com-search{
+		height: 0.72rem;
+	}
+}
