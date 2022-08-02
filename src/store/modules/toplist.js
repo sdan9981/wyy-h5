@@ -30,15 +30,15 @@ export default {
 		},
 		//更新精选榜单
 		[UPDATE_TOPLIST_SELECTED](state, cont) {
-			state.topListOfficial = cont
+			state.topListSelected = cont
 		},
 		//更新曲风榜单
 		[UPDATE_TOPLIST_GENER](state, cont) {
-			state.topListOfficial = cont
+			state.topListGenre = cont
 		},
 		//更新语言榜单
 		[UPDATE_TOPLIST_LANGUAGE](state, cont) {
-			state.topListOfficial = cont
+			state.topListLanguage = cont
 		}
 	},
 	actions: {
@@ -46,7 +46,7 @@ export default {
 			const res = await apiGetTopList()
 			if (res.code == 200) {
 				const officialArr = res.list.filter(item => {
-					return item.ToplistType !== undefined || item.ToplistType != null
+					return item.ToplistType !== undefined
 				})
 				context.commit('UPDATE_TOPLIST_OFFICIAL', officialArr)
 				

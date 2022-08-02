@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-	"build:test": "vite --model dev",
+    "build:test": "vite --model dev",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -24,6 +24,8 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^3.0.0",
+    "postcss": "^8.4.14",
+    "postcss-pxtorem": "^6.0.0",
     "sass": "^1.54.0",
     "sass-loader": "^13.0.2",
     "sass-node": "^4.11.2",

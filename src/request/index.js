@@ -24,7 +24,8 @@ instance.interceptors.response.use(
 		if (data.code == 200 || data.code == 201) {
 			return data
 		} else {
-			ElMessage.error('is a error message')
+			console.log(data)
+			// ElMessage.error('is a error message')
 			return Promise.reject(new Error(data))
 		}
 	}, (error) => {

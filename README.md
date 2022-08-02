@@ -1,6 +1,6 @@
 ## 网易云音乐h5版
 ## 网易云音乐 接口地址 [不提供线上接口](https://neteasecloudmusicapi.js.org/#/?id=neteasecloudmusicapi)
-## 
+## 进入接口地址后下载到本地，通过node方式运行
 
 # Vue 3 + Vite
 # Vant ui + fontawesome图标免费版

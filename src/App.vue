@@ -1,12 +1,15 @@
 <template>
 	<TabBar />
+	<PlayTab />
   <router-view></router-view>
 </template>
 
 <script setup>
 	import TabBar from '@/components/common/TabBar.vue'
+	import PlayTab from '@/components/common/PlayTab.vue'
 	components: {
-		TabBar
+		TabBar,
+		PlayTab
 	}
 	
 </script>

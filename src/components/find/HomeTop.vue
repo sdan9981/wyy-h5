@@ -24,6 +24,7 @@
 <style lang="scss" scoped>
 	.top {
 		@extend .padd-css;
+		background: $bj;
 		grid-column-gap: 0.32rem;
 		svg{
 			font-size: 0.44rem;

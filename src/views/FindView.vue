@@ -49,7 +49,7 @@
 			onMounted(async () => {
 				const res = await apiRecommentSongs()
 				if (res.code == 200) {
-					obj.recomendSongs = res.recommend
+					obj.recomendSongs = res.result
 				}
 			})
 
@@ -74,6 +74,7 @@
 		min-height: calc(100% - 1.2rem - 1.12rem);
 		box-sizing: border-box;
 		background-image: linear-gradient(#fdf4ff, $bj);
+		padding: 1.2rem 0;
 		.song-coll {
 			@extend .padd-css;
 			display: flex;

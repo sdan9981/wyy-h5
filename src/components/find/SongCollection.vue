@@ -1,5 +1,5 @@
 <template>
-	<div class="song-collection" :style="{width:itemWidth}">
+	<div class="song-collection" :style="{width:itemWidth}" @click="$router.push({path:'/musicdetial',query:{id:item.id}})">
 		<div class="song-cover" :style="{height:itemWidth}">
 			<img :src="item.picUrl">
 			<span class="play-num">

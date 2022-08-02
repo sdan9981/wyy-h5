@@ -5,6 +5,12 @@ const routes = [
 		path: '/',
 		name: 'Find',
 		component: () => import('@/views/FindView.vue')
+	},
+	//歌单详情
+	{
+		path: '/musicdetial',
+		name: 'MusicDetial',
+		component: () => import('@/views/MusicDetailView.vue')
 	}
 ]
 

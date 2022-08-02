@@ -26,14 +26,25 @@ import {
 	faHeartPulse,
 	faGamepad,
 	faStar,
-	faCaretRight
+	faCaretRight,
+	faCirclePlay,
+	faCirclePause,
+	faListUl,
+	faArrowLeft,
+	faMagnifyingGlass,
+	faEllipsisVertical,
+	faSquarePlus,
+	faCommentDots,
+	faShareNodes,
+	faDownload,
+	faCircleCheck
 } from '@fortawesome/free-solid-svg-icons'
 import {
 	faTwitter,
 	faNapster,
 	faSoundcloud
 } from '@fortawesome/free-brands-svg-icons'
-// import { faPlayCircle } from '@fortawesome/free-regular-svg-icons'
+// import { faCirclePause,faCirclePlay } from '@fortawesome/free-regular-svg-icons'
 
 /* add icons to the library */
 const fontwArr = [
@@ -56,7 +67,18 @@ const fontwArr = [
 	faHeartPulse,
 	faGamepad,
 	faStar,
-	faCaretRight
+	faCaretRight,
+	faCirclePlay,
+	faCirclePause,
+	faListUl,
+	faArrowLeft,
+	faMagnifyingGlass,
+	faEllipsisVertical,
+	faSquarePlus,
+	faCommentDots,
+	faShareNodes,
+	faDownload,
+	faCircleCheck
 ]
 fontwArr.forEach((item) => {
 	library.add(item)
