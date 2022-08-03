@@ -30,7 +30,6 @@
 	export default {
 		setup(props) {
 			const getPlayCount = useplayCount()
-			console.log(props)
 			return {
 				getPlayCount
 			}

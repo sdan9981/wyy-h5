@@ -17,11 +17,11 @@
 				</div>
 				<div class="detail-listTop__down">
 					<font-awesome-icon :icon="['fas', 'download']" />
-					<font-awesome-icon :icon="['fas', 'circle-check']" />
+					<font-awesome-icon :icon="['far', 'circle-check']" />
 				</div>
 			</div>
 			
-			<MusicList></MusicList>
+			<MusicList v-if="infoShow" :isShowRank="true" :musicList="playlist.tracks"></MusicList>
 			
 		</div>
 	</div>
@@ -46,6 +46,7 @@
 			onMounted(async () => {
 				let id = useRoute().query.id
 				const res = await apiMusicDetail(id)
+				// console.log(res)
 					if(res.code == 200){
 						obj.playlist = res.playlist
 						obj.privileges = res.privileges
@@ -74,7 +75,7 @@
 <style lang="scss" scoped>
 	.music-detail{
 		.top-box{
-			height: 4.4rem;
+			height: 5.52rem;
 			padding-top: 1.2rem;
 			.top-bj{
 				width: 100%;

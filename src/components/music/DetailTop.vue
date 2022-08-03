@@ -1,7 +1,7 @@
 <template>
 	<div class="com-top detail-top">
 		<div class="top-return">
-			<font-awesome-icon :icon="['fas', 'arrow-left']" />
+			<font-awesome-icon :icon="['fas', 'arrow-left']" @click="$router.go(-1)" />
 			<span>歌单</span>
 		</div>
 		<div class="top-option">

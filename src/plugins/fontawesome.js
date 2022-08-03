@@ -37,24 +37,28 @@ import {
 	faCommentDots,
 	faShareNodes,
 	faDownload,
-	faCircleCheck
+	faCircleCheck,
+	faRepeat,
+	faShuffle,
+	faRotateRight,
+	faBackwardStep,
+	faForwardStep
 } from '@fortawesome/free-solid-svg-icons'
+
 import {
-	faTwitter,
-	faNapster,
-	faSoundcloud
+	fab
 } from '@fortawesome/free-brands-svg-icons'
-// import { faCirclePause,faCirclePlay } from '@fortawesome/free-regular-svg-icons'
+import { far } from '@fortawesome/free-regular-svg-icons'
 
 /* add icons to the library */
 const fontwArr = [
 	faUserSecret, 
-	faTwitter, 
-	faNapster, 
+	// faTwitter, 
+	// faNapster, 
 	faMusic, 
 	faPodcast, 
 	faHeartCirclePlus,
-	faSoundcloud,
+	// faSoundcloud,
 	faBars,
 	faMicrophoneLines,
 	faRankingStar,
@@ -78,7 +82,14 @@ const fontwArr = [
 	faCommentDots,
 	faShareNodes,
 	faDownload,
-	faCircleCheck
+	faCircleCheck,
+	far,
+	fab,
+	faRepeat,
+	faShuffle,
+	faRotateRight,
+	faBackwardStep,
+	faForwardStep
 ]
 fontwArr.forEach((item) => {
 	library.add(item)

@@ -1,6 +1,6 @@
 <template>
 	<TabBar />
-	<PlayTab />
+	<PlayTab v-if="$store.state.play.isPlayTabbar" />
   <router-view></router-view>
 </template>
 

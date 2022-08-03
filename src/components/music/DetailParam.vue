@@ -2,11 +2,11 @@
 	<div class="param">
 		<div class="param-list">
 			<div>
-				<font-awesome-icon :icon="['fas', 'square-plus']" />
+				<font-awesome-icon :icon="['far', 'square-plus']" />
 				<span>{{ numList.subscribedCount }}</span>
 			</div>
 			<div>
-				<font-awesome-icon :icon="['fas', 'comment-dots']" />
+				<font-awesome-icon :icon="['far', 'comment-dots']" />
 				<span>{{ numList.commentCount }}</span>
 			</div>
 			<div>
@@ -34,7 +34,7 @@
 		justify-content: center;
 		background-color: $bj;
 		position: relative;
-		margin-top: 0.2rem;
+		margin-top: 0.4rem;
 		height: 0.8rem;
 		.param-list{
 			width: 5.6rem;
@@ -53,6 +53,7 @@
 				align-items: center;
 				width: 32%;
 				color: $font-color;
+				grid-column-gap: 0.08rem;
 			}
 			>div:nth-of-type(2){
 				border-left: 1px solid $font-color;

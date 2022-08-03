@@ -3,7 +3,9 @@ import {
 	Search,
 	Icon,
 	Swipe,
-	SwipeItem
+	SwipeItem,
+	Popup,
+	Slider
 } from 'vant'
 
 const vantArr = [
@@ -11,7 +13,9 @@ const vantArr = [
 	Search,
 	Icon,
 	Swipe,
-	SwipeItem
+	SwipeItem,
+	Popup,
+	Slider
 ]
 
 export default (app) => {

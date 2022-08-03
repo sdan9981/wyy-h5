@@ -3,6 +3,7 @@ import {
 } from 'vuex'
 import find from '@/store/modules/find'
 import toplist from '@/store/modules/toplist'
+import play from '@/store/modules/play'
 
 export default createStore({
 	state() {
@@ -18,6 +19,7 @@ export default createStore({
 
 	},
 	modules: {
-		toplist
+		toplist,
+		play
 	}
 })

@@ -14,7 +14,7 @@
 		</title-solt>
 		<div class="song-coll">
 			<SongCollection v-for="(item,i) in recomendSongs" :key="item.id" :item="item" itemWidth="2.2rem"
-				:playCount="getPlayCount(item.playcount)">
+				:playCount="getPlayCount(item.playCount)">
 			</SongCollection>
 		</div>
 		<HomeToplist/>
@@ -50,6 +50,7 @@
 				const res = await apiRecommentSongs()
 				if (res.code == 200) {
 					obj.recomendSongs = res.result
+					
 				}
 			})
 
@@ -80,6 +81,7 @@
 			display: flex;
 			grid-column-gap: 0.2rem;
 			overflow: scroll;
+			margin: 0.4rem 0;
 		}
 	}
 </style>
