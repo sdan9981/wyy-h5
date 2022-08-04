@@ -10,3 +10,6 @@ export const UPDATE_PLAYINDEX = 'UPDATE_PLAYINDEX'  //更新播放哪首
 export const UPDATE_PLAYLIST = 'UPDATE_PLAYLIST'  //更新播放列表
 export const UPDATE_PLAYLIST_PUSH = 'UPDATE_PLAYLIST_PUSH'  //更新播放列表
 export const UPDATE_IS_TABBAR = 'UPDATE_IS_TABBAR'  //更新播放tabbar
+export const UPDATE_LYRICLIST = 'UPDATE_LYRICLIST'  //更新歌词
+export const UPDATE_CURRENT_TIME = 'UPDATE_CURRENT_TIME'  //更新歌词当前时间
+export const UPDATE_DURATION = 'UPDATE_DURATION'  //更新歌词当前时间

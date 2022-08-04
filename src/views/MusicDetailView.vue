@@ -8,7 +8,7 @@
 		</div>
 		<div class="detail-list">
 			<div class="detail-listTop">
-				<div class="detail-listTop__all">
+				<div class="detail-listTop__all" @click="playAll">
 					<font-awesome-icon :icon="['fas', 'circle-play']" />
 					<span>
 						<b>播放全部</b>
@@ -35,6 +35,7 @@
 	import { apiMusicDetail } from '@/request/api/find'
 	import { reactive,onMounted,toRefs } from 'vue'
 	import { useRoute } from 'vue-router'
+	import { useStore } from 'vuex'
 	export default {
 		setup(){
 			const obj = reactive({
@@ -43,6 +44,7 @@
 				infoShow: false,
 				numList: {}
 			})
+			const useStores = useStore()
 			onMounted(async () => {
 				let id = useRoute().query.id
 				const res = await apiMusicDetail(id)
@@ -59,8 +61,17 @@
 					}
 					// console.log(obj)
 			})
+			const playAll = () => {
+				useStores.commit('play/UPDATE_PLAYLIST',obj.playlist.tracks)
+				// console.log(useStores.state.play.playlist)
+				useStores.dispatch('play/updatePlayIndex',0)
+				useStores.dispatch('play/updateisShowPopup',true)
+				useStores.commit('play/UPDATE_IS_TABBAR',true)
+				useStores.commit('play/UPDATE_IS_PLAY', true)
+			}
 			return {
-				...toRefs(obj)
+				...toRefs(obj),
+				playAll
 			}
 		},
 		components: {

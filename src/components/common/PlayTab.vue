@@ -19,7 +19,8 @@
 			<font-awesome-icon v-else :icon="['far', 'circle-pause']" @click="play" />
 			<font-awesome-icon :icon="['fas', 'list-ul']" />
 		</div>
-		<audio ref="audio" :autoplay="isPlay" :src="`https://music.163.com/song/media/outer/url?id=${playList[playIndex].id}.mp3`"></audio>
+		<audio ref="audio" :autoplay="isPlay"
+			:src="`https://music.163.com/song/media/outer/url?id=${playList[playIndex].id}.mp3`"></audio>
 		<van-popup v-model:show="isShowPopup" position="bottom" :style="{ height: '100%' }">
 			<PlayDetail :playFun="play"></PlayDetail>
 		</van-popup>
@@ -51,25 +52,41 @@
 			const obj = reactive({
 				audio: {}
 			})
-			// const {
-			// 	play
-			// } = usePlay()
+			const {
+				play
+			} = usePlay()
 			const showPopup = () => {
 				useStores.dispatch('play/updateisShowPopup', true)
 			}
 			onMounted(() => {
 				obj.audio = instance.refs.audio
+				//获取歌词
+				useStores.dispatch('play/updateLyricList', useStates.playList.value[useStates.playIndex.value].id)
 			})
-			const play = () => {		
-				if (obj.audio.paused) {
-					obj.audio.play()
-					useStores.commit('play/UPDATE_IS_PLAY', true)
-				} else {
-					obj.audio.pause()
-					useStores.commit('play/UPDATE_IS_PLAY', false)
-				}
+			onUpdated(() => {
+				//获取歌词
+				useStores.dispatch('play/updateLyricList', useStates.playList.value[useStates.playIndex.value].id)
+			})
+
+			const updateTime = () => {
+				obj.interVal = setInterval(() => {
+					useStores.commit('play/UPDATE_CURRENT_TIME', obj.audio.currentTime)
+				}, 1000)
 			}
-			
+			const addDuration = () => {
+				useStores.commit('play/UPDATE_DURATION', obj.audio.duration)
+			}
+
+			// const play = () => {		
+			// 	if (obj.audio.paused) {
+			// 		obj.audio.play()
+			// 		useStores.commit('play/UPDATE_IS_PLAY', true)
+			// 	} else {
+			// 		obj.audio.pause()
+			// 		useStores.commit('play/UPDATE_IS_PLAY', false)
+			// 	}
+			// }
+
 			return {
 				...useStates,
 				play,

@@ -32,3 +32,11 @@ export const apiMusicDetail = (id) => {
 		url: `/playlist/detail?id=${id}`
 	})
 }
+
+//获取词 /lyric?id=33894312
+export const apiGetLyric = (id) => {
+	return instance({
+		method: 'GET',
+		url: `/lyric?id=${id}`
+	})
+}
