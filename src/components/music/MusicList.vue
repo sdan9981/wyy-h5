@@ -10,7 +10,7 @@
 					<h4>{{ item.name }}</h4>
 					<p ref="listAuthor">
 						<span v-show="item.sq != undefined">SQ</span>
-						<template v-for="(ar, n) in item.ar">
+						<template v-if="item.ar != undefined" v-for="(ar, n) in item.ar">
 							<b v-if="n < item.ar.length-1">
 								{{ ar.name }}/
 							</b>
@@ -18,7 +18,20 @@
 								{{ ar.name }}
 							</b>
 						</template>
-						&minus;{{ item.al.name }}
+						<template v-else-if="item.artists != undefined" v-for="(ar, n) in item.artists">
+							<b v-if="n < item.artists.length-1">
+								{{ ar.name }}/
+							</b>
+							<b v-else="n == artists.length">
+								{{ ar.name }}
+							</b>
+						</template>
+						<template v-if="item.al">
+							&minus;{{ item.al.name }}
+						</template>
+						<template v-else-if="item.album">
+							{{ item.album.name }}
+						</template>
 					</p>
 				</div>
 			</div>
@@ -37,6 +50,10 @@
 		setup(props) {
 			const useStores = useStore()
 			const playMusic = (item) => {
+				if(item.album){
+					item.al = item.album
+					item.al.picUrl = item.album.artist.img1v1Url
+				}
 				useStores.commit('play/UPDATE_PLAYLIST_PUSH',item)
 				useStores.dispatch('play/updatePlayIndex',parseInt(useStores.state.play.playIndex) + 1)
 				useStores.dispatch('play/updateisShowPopup',true)
@@ -61,6 +78,7 @@
 		display: flex;
 		flex-direction: column;
 		box-sizing: border-box;
+		background: $bj;
 		.list{
 			width: 100%;
 			height: 1.2rem;

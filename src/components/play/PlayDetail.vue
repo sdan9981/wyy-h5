@@ -27,12 +27,12 @@
 		<!-- 中间 -->
 		<div class="play-center">
 			<!-- 磁盘 -->
-			<PlayCd :coverImg="playList[playIndex].al.picUrl" :isPlay="isPlay"></PlayCd>
+			<PlayCd v-show="!isShowLyric" :coverImg="playList[playIndex].al.picUrl" :isPlay="isPlay" @click="showLyric(true)"></PlayCd>
 			<!-- 歌词 -->
-			<PlayLyric v-show="false" :lyric="lyric" :currentTime="currentTime"></PlayLyric>
+			<PlayLyric v-show="isShowLyric" :lyric="lyric" :currentTime="currentTime" @click="showLyric(false)"></PlayLyric>
 		</div>
 		<!-- 底部 -->
-		<PlayOption :playFun="playFun"></PlayOption>
+		<PlayOption v-if="showTime" :playFun="playFun" :currentTime="currentTime" :duration="duration"></PlayOption>
 	</div>
 </template>
 
@@ -46,7 +46,9 @@
 	} from 'vuex'
 	import {
 		onMounted,
-		computed
+		computed,
+		ref,
+		watch
 	} from 'vue'
 	import {
 		useState
@@ -55,10 +57,19 @@
 	import PlayCd from '@/components/play/PlayCd.vue'
 	import PlayLyric from '@/components/play/PlayLyric.vue'
 	export default {
-		setup() {
+		setup(props) {
 			const useStores = useStore()
-			const useStates = useState(['playList', 'playIndex', 'isPlay', 'lyricList','currentTime'], 'play')
-
+			const useStates = useState(['playList', 'playIndex', 'isPlay', 'lyricList','currentTime','duration','isShowLyric'], 'play')
+			
+			const showTime = ref(false)
+			onMounted(() => {
+				setTimeout(() =>{
+					props.addDuration()
+					showTime.value = true
+				},500)
+			})
+			
+			
 			//关闭弹窗
 			const hidePopup = () => {
 				useStores.dispatch('play/updateisShowPopup', false)
@@ -97,11 +108,18 @@
 				}
 				return arr
 			})
+			
+			//是否显示歌词
+			const showLyric = (val) => {
+				useStores.commit('play/UPDATE_ISSHOWLYRIC',val)
+			}
 
 			return {
 				hidePopup,
 				...useStates,
-				lyric
+				lyric,
+				showLyric,
+				showTime
 			}
 		},
 		components: {
@@ -111,7 +129,8 @@
 			PlayLyric
 		},
 		props: {
-			playFun: Function
+			playFun: Function,
+			addDuration: Function,
 		}
 	}
 </script>

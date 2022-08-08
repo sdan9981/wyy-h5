@@ -1,5 +1,5 @@
 <template>
-	<div class="com-top top">
+	<div class="com-top top" @click="$router.push('/search')">
 		<font-awesome-icon :icon="['fas', 'bars']" />
 		<div class="com-search top-search">
 			<van-icon name="search" />

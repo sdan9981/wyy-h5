@@ -1,13 +1,17 @@
 <template>
 	<div class="option">
 		<div class="range">
-			<span>11:11</span>
-			<van-slider v-model="value" :min="-10" :step="0.05" active-color="#fff" inactive-color="#e2e2e2">
+			<span>
+				{{ parseInt(currentTime / 60 % 60) < 10 ?  '0'+parseInt(currentTime / 60 % 60) : parseInt(currentTime / 60 % 60)}}:{{ parseInt(currentTime % 60) < 10 ? '0'+parseInt(currentTime % 60) : parseInt(currentTime % 60) }}
+			</span>
+			<van-slider min="0" v-model="currentTime" :max="duration" :step="0.05" active-color="#fff" inactive-color="#e2e2e2">
 				<template #button>
 					<div class="custom-button">{{ value }}</div>
 				</template>
 			</van-slider>
-			<span>11:11</span>
+			<span>
+				{{ parseInt(duration / 60 % 60) < 10 ?  '0'+parseInt(duration / 60 % 60) : parseInt(duration / 60 % 60)}}:{{ parseInt(duration % 60) < 10 ? '0'+parseInt(duration % 60) : parseInt(duration % 60) }}
+			</span>
 		</div>
 		<div class="btn">
 			<!-- 全部循环 -->
@@ -39,14 +43,16 @@
 		useState
 	} from '@/utils'
 	export default {
-		setup(){
+		setup(props){
 			const useStates = useState(['isPlay'], 'play')
 			return {
 				...useStates
 			}
 		},
 		props: {
-			playFun: Function
+			playFun: Function,
+			duration: String,
+			currentTime: String
 		}
 	}
 </script>

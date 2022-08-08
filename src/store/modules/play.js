@@ -7,7 +7,8 @@ import {
 	UPDATE_IS_TABBAR,
 	UPDATE_LYRICLIST,
 	UPDATE_CURRENT_TIME,
-	UPDATE_DURATION
+	UPDATE_DURATION,
+	UPDATE_ISSHOWLYRIC
 } from '@/store/mutation-types'
 import {
 	apiGetLyric
@@ -31,6 +32,8 @@ export default {
 		//歌词当前时间
 		currentTime: 0,
 		duration: 0, //歌曲总时间
+		//是否显示歌词
+		isShowLyric: false,
 
 	}),
 	mutations: {
@@ -63,6 +66,9 @@ export default {
 		[UPDATE_DURATION](state, value) {
 			state.duration = value
 		},
+		[UPDATE_ISSHOWLYRIC] (state,val){
+			state.isShowLyric = val
+		}
 	},
 	actions: {
 		updateisShowPopup: ({

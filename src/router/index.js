@@ -11,6 +11,12 @@ const routes = [
 		path: '/musicdetial',
 		name: 'MusicDetial',
 		component: () => import('@/views/MusicDetailView.vue')
+	},
+	//搜索
+	{
+		path: '/search',
+		name: 'Search',
+		component: () => import('@/views/SearchView.vue')
 	}
 ]
 

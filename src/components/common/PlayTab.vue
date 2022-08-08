@@ -22,7 +22,7 @@
 		<audio ref="audio" :autoplay="isPlay"
 			:src="`https://music.163.com/song/media/outer/url?id=${playList[playIndex].id}.mp3`"></audio>
 		<van-popup v-model:show="isShowPopup" position="bottom" :style="{ height: '100%' }">
-			<PlayDetail :playFun="play"></PlayDetail>
+			<PlayDetail :playFun="play" :addDuration="addDuration"></PlayDetail>
 		</van-popup>
 	</div>
 </template>
@@ -50,10 +50,13 @@
 			const instance = getCurrentInstance()
 			const useStores = useStore()
 			const obj = reactive({
-				audio: {}
+				audio: {},
+				// interVal: 0
+				allTime: 0
 			})
 			const {
-				play
+				play,
+				updateTime
 			} = usePlay()
 			const showPopup = () => {
 				useStores.dispatch('play/updateisShowPopup', true)
@@ -62,35 +65,24 @@
 				obj.audio = instance.refs.audio
 				//获取歌词
 				useStores.dispatch('play/updateLyricList', useStates.playList.value[useStates.playIndex.value].id)
+				updateTime()
+				
 			})
 			onUpdated(() => {
 				//获取歌词
 				useStores.dispatch('play/updateLyricList', useStates.playList.value[useStates.playIndex.value].id)
+				addDuration()
 			})
 
-			const updateTime = () => {
-				obj.interVal = setInterval(() => {
-					useStores.commit('play/UPDATE_CURRENT_TIME', obj.audio.currentTime)
-				}, 1000)
-			}
 			const addDuration = () => {
-				useStores.commit('play/UPDATE_DURATION', obj.audio.duration)
+				useStores.commit('play/UPDATE_DURATION', instance.refs.audio.duration)
 			}
-
-			// const play = () => {		
-			// 	if (obj.audio.paused) {
-			// 		obj.audio.play()
-			// 		useStores.commit('play/UPDATE_IS_PLAY', true)
-			// 	} else {
-			// 		obj.audio.pause()
-			// 		useStores.commit('play/UPDATE_IS_PLAY', false)
-			// 	}
-			// }
 
 			return {
 				...useStates,
 				play,
-				showPopup
+				showPopup,
+				addDuration
 			}
 		},
 		components: {

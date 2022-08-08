@@ -40,3 +40,11 @@ export const apiGetLyric = (id) => {
 		url: `/lyric?id=${id}`
 	})
 }
+
+//搜索 /search?keywords= 海阔天空
+export const apiSearchKeywords = (kw) => {
+	return instance({
+		method: 'GET',
+		url: `/search?keywords=${kw}`
+	})
+}

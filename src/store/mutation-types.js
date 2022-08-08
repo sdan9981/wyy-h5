@@ -13,3 +13,4 @@ export const UPDATE_IS_TABBAR = 'UPDATE_IS_TABBAR'  //更新播放tabbar
 export const UPDATE_LYRICLIST = 'UPDATE_LYRICLIST'  //更新歌词
 export const UPDATE_CURRENT_TIME = 'UPDATE_CURRENT_TIME'  //更新歌词当前时间
 export const UPDATE_DURATION = 'UPDATE_DURATION'  //更新歌词当前时间
+export const UPDATE_ISSHOWLYRIC = 'UPDATE_ISSHOWLYRIC'  //更新是否显示歌词
